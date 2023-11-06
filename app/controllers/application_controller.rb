@@ -1,4 +1,9 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
+
+  # Another way authenticate users access to certain pages without using skip_before_action
+  # before_action :authenticate_user!, except: [:home]
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
