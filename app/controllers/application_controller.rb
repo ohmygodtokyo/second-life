@@ -13,4 +13,9 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
   end
+
+  # This method will redirect users to products index page after signing in. 
+  def after_sign_in_path_for(resource)
+    products_path # Change "products_path" to the path of your products index page
+  end
 end
