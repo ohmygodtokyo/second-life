@@ -10,6 +10,19 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = current_user.products.new(product_params)
+    if @product.save
+      redirect_to products_path(@products), notice: 'Product was successfully created.'
+    else
+      render :new, status: :unprocessable_entity, alert: 'Product could not be created.'
+    end
+  end
+
   private
 
   def product_params
