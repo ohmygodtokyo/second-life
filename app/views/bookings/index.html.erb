@@ -1,0 +1,61 @@
+<main>
+  <section>
+    <div class="container">
+      <div class="mt-5">
+        <%= link_to " Back", products_path, class: "btn btn-dark fa-solid fa-arrow-left" %>
+      </div>
+      <div class="row">
+        <div class="col-lg-9 col-md-8 col-12">
+          <div class="py-6 p-md-6 p-lg-10">
+            <h2 class="mt-5 mb-3 text-center">Your Bookings</h2>
+            <div class="table-responsive-xxl border-0">
+              <table class="table mb-0 text-nowrap table-centered">
+                <thead class="bg-light">
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th>Product</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Total</th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @bookings.each do |booking| %>
+                    <tr>
+                      <td class="align-middle border-top-0 w-0">
+                        <% if booking.product.image.attached? %>
+                          <%= link_to product_path(booking.product) do %>
+                            <%= image_tag(booking.product.image, style:"width: 56px; height: 56px;") %>
+                          <% end %>
+                        <% else %>
+                          <%= link_to product_path(booking.product) do %>
+                            <%= image_tag('malvestida-u79wy47kvVs-unsplash.jpg', style:"width: 56px; height: 56px; object-fit: cover;") %>
+                          <% end %>
+                        <% end %>
+                      </td>
+                      <td class="align-middle border-top-0">
+                        <%= link_to product_path(booking.product) do %>
+                          <%= booking.product.name %>
+                        <% end %>
+                      </td>
+                      <td class="align-middle border-top-0">
+                        <%= booking.start_date %>
+                      </td>
+                      <td class="align-middle border-top-0">
+                        <%= booking.end_date %>
+                      </td>
+                      <td class="align-middle border-top-0">
+                        <%= "$#{booking.calculate_total_cost}" %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

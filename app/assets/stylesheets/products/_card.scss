@@ -58,26 +58,35 @@ a:hover {
 		transform: scale(1.2,1.2) rotate(5deg);
 }
 
-.section-products #product-1 .part-1::before {
-    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
-    background-size: cover;
-		transition: all 0.3s;
-}
+// .section-products #product-1 .part-1::before {
+//     // background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+//     background-image: url('/app/assets/images/malvestida-u79wy47kvVs-unsplash.jpg') no-repeat center;
+//     background-size: cover;
+// 		transition: all 0.3s;
+// }
+// .section-products #product-1 .part-1::before {
+//   background: url('{<%= asset_path("malvestida-u79wy47kvVs-unsplash.jpg") %>}') no-repeat center;
+//   background-size: cover;
+//   transition: all 0.3s;
+// }
 
-.section-products #product-2 .part-1::before {
-    background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
-    background-size: cover;
-}
+/* Add similar modifications for other product sections */
 
-.section-products #product-3 .part-1::before {
-    background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
-    background-size: cover;
-}
 
-.section-products #product-4 .part-1::before {
-    background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
-    background-size: cover;
-}
+// .section-products #product-2 .part-1::before {
+//     background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+//     background-size: cover;
+// }
+
+// .section-products #product-3 .part-1::before {
+//     background: url("https://i.ibb.co/L8Nrb7p/1.jpg") no-repeat center;
+//     background-size: cover;
+// }
+
+// .section-products #product-4 .part-1::before {
+//     background: url("https://i.ibb.co/cLnZjnS/2.jpg") no-repeat center;
+//     background-size: cover;
+// }
 
 .section-products .single-product .part-1 .discount,
 .section-products .single-product .part-1 .new {
@@ -125,7 +134,7 @@ a:hover {
     background-color: #ffffff;
     color: #444444;
     text-align: center;
-    // box-shadow: 0 2px 20px rgb(50 50 50 / 10%);
+    box-shadow: 0 2px 20px rgba(50, 50, 50, 0.1);
     transition: color 0.2s;
 }
 

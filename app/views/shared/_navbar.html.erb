@@ -6,8 +6,23 @@
   <% end %>
   <ul class="nav-menu">
     <%- if user_signed_in? %>
-      <li><%= link_to "Add New Products", new_product_path %></li>
-      <li><%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+      <!-- li><%= link_to "Add New Products", new_product_path %></li -->
+      <!-- li><%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } %></li -->
+      <!-- li><%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar fa-solid fa-user", alt: "avatar" %></li -->
+      <div class="btn-group dropstart">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Profile
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+          <li><%= link_to "Add New Products", new_product_path, class: "dropdown-item" %></li>
+          <li><%= link_to "My bookings", bookings_path(@bookings), class: "dropdown-item" %></li>
+          <!-- li><%= link_to "My products", bookings_path(@bookings), class: "dropdown-item" %></li -->
+          <li><%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
+          <!-- li><a class="dropdown-item" href="#">Another action</a></li -->
+          <!-- li><a class="dropdown-item" href="#">Something else here</a></li -->
+        </ul>
+      </div>
+      <!-- li class="avatar"><i class="fa-solid fa-user fa-lg"></i></li -->
     <%- else %>
       <li><%= link_to "Login", new_user_session_path %></li>
       <li><%= link_to "Sign up", new_user_registration_path %></li>
