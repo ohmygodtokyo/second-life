@@ -33,6 +33,7 @@ a:hover {
 
 .section-products .single-product {
     margin-bottom: 26px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .section-products .single-product .part-1 {
@@ -169,4 +170,43 @@ a:hover {
     transform: translateY(-50%);
 }
 
-// /app/assets/images/malvestida-u79wy47kvVs-unsplash.jpg
+// .section-products {
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-between; /* or justify-content: space-around; */
+// }
+
+// .single-product {
+//   flex: 0 0 100%; /* Each product takes 100% width in a row */
+//   margin-bottom: 26px;
+//   display: flex;
+//   flex-direction: column; /* Make sure child elements stack vertically */
+//   height: 100%; /* Ensure equal height for all cards */
+// }
+
+// .part-1 {
+//   position: relative;
+//   flex: 1; /* Expand to fill available space */
+//   overflow: hidden;
+// }
+
+.section-products .single-product {
+  display: flex;
+  // justify-content: space-between;
+  flex-direction: column;
+  height: 95%;
+}
+
+.section-products .single-product .part-1 {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-products .single-product .part-2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+}

@@ -1,12 +1,16 @@
 <div class="container mt-3">
-  <%= simple_form_for :search, url: products_path, method: :get do |f| %>
-    <div class="search-form-control form-group">
-      <input class="form-control string required" type="text" name="search[query]" id="search_query"/>
-      <button name="button" type="submit" class="btn btn-dark">
-        <i class="fas fa-search"></i> Search
-      </button>
+  <div class="row justify-content-center">
+    <div class="col-sm-12 my-2">
+      <%= form_with url: products_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Looking for something specific?"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-dark" %>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 
   <section class="section-products">
     <div class="container">
@@ -31,16 +35,14 @@
                   <% end %>
                 <% end %>
                 <ul>
-                  <!-- li><a href="#"><i class="fas fa-shopping-cart"></i></a></li -->
-                  <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                  <li><i><%= link_to "", product_path(product), class: "fas fa-plus", target: "_blank" %></i></li>
+                  <li><i><%= link_to "", product_path(product), class: "fa-solid fa-up-right-from-square", target: "_blank" %></i></li>
                 </ul>
               </div>
               <div class="part-2">
-                <h3 class="product-title"><%= product.name %></h3>
-                <h4 class="product-price">$<%= product.price %>0 per month</h4>
-                <p><%= product.description %></p>
-                <p>Listed by <em><%= product.user.first_name %></em></p>
+                <h1 class="product-title"><strong><%= product.name %></strong></h1>
+                <h4 class="product-price">$<span class="text-dark"><%= product.price %></span> per day</h4>
+                <p class="my-2"><%= product.description %></p>
+                <small class="text-muted">Listed by <em><%= product.user.first_name %></em></small>
               </div>
             </div>
           </div>
