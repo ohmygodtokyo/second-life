@@ -1,0 +1,17 @@
+.tns-liveregion {
+  position: relative;
+}
+
+.tns-liveregion ul {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px; /* Adjust the margin as needed for spacing */
+}
+
+.tns-liveregion ul i {
+  color: #fff; /* Set the color of the icon */
+  // background-color: #000; /* Set the background color of the icon */
+  padding: 5px; /* Adjust padding as needed */
+  border-radius: 4px; /* Optional: Add some border-radius for rounded corners */
+}

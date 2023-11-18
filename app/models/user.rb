@@ -9,4 +9,13 @@ class User < ApplicationRecord
 
   has_many :products
   has_many :bookings
+
+  def current_user_pending_booking
+    # bookings.pending.first
+    # bookings.where(status: "pending").first
+    bookings.find_by(status: "pending")
+  end
+
+  has_many :favorites
+  has_many :favorite_products, through: :favorites, source: :product
 end

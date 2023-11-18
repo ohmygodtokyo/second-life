@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
+  get 'favorites/destroy'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -8,6 +10,15 @@ Rails.application.routes.draw do
   resources :products do
     resources :bookings, only: [:new, :create]
   end
-  
-  resources :bookings
+
+  resources :favorites, only: [:create, :destroy]
+
+  resources :bookings do
+    member do
+      post :approve
+      get :approve
+      post :deny
+      get :deny
+    end
+  end
 end

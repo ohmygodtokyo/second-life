@@ -4,21 +4,30 @@
       <div class="mt-5">
         <%= link_to " Back", products_path, class: "btn btn-dark fa-solid fa-arrow-left" %>
       </div>
-      <div class="row">
+      <div class="row justify-content-center">
         <div class="col-lg-9 col-md-8 col-12">
           <div class="py-6 p-md-6 p-lg-10">
             <h2 class="mt-5 mb-3 text-center">Your Bookings</h2>
             <div class="table-responsive-xxl border-0">
               <table class="table mb-0 text-nowrap table-centered">
                 <thead class="bg-light">
-                  <tr>
-                    <th>&nbsp;</th>
-                    <th>Product</th>
-                    <th>Start Date</th>
-                    <th>End Date</th>
-                    <th>Total</th>
-                    <th>&nbsp;</th>
-                  </tr>
+                    <tr>
+                      <th>&nbsp;</th>
+                      <th>Product</th>
+                      <th>Start Date</th>
+                      <th>End Date</th>
+                      <th>Total</th>
+                      <th>Status</th>
+                      <% if @bookings.any? { |booking| booking.status == "approved" } %>
+                        <th>Pickup location</th>
+                      <% end %>
+                      <% @bookings.each do |booking| %>
+                          <% if current_user.products.include?(booking.product) && booking.status == "pending" %>
+                            <th>Approve</th>
+                            <th>Deny</th>
+                          <% end %>
+                      <% end %>
+                    </tr>
                 </thead>
                 <tbody>
                   <% @bookings.each do |booking| %>
@@ -48,6 +57,28 @@
                       <td class="align-middle border-top-0">
                         <%= "$#{booking.calculate_total_cost}" %>
                       </td>
+                      <td class="align-middle border-top-0">
+                        <span><%= booking.status %></span>
+                      </td>
+
+                      <% if @bookings.any? { |booking| booking.status == "approved" } %>
+                        <td class="align-middle border-top-0">
+                          <%= booking.product.pickup_address %>
+                        </td>
+                      <% end %>
+
+                      <% if current_user.products.include?(booking.product) && booking.status == "pending" %>
+                        <td class="align-middle border-top-0">
+                          <%= link_to approve_booking_path(booking), class: "btn btn-dark", method: :post do %>
+                            <i class="fa-solid fa-check" style="color: #00a676;"></i>
+                          <% end %>
+                        </td>
+                        <td class="align-middle border-top-0">
+                          <%= link_to deny_booking_path(booking), class: "btn btn-dark", method: :post do %>
+                            <i class="fa-solid fa-xmark" style="color: #f42b03;"></i>
+                          <% end %>
+                        </td>
+                      <% end %>
                     </tr>
                   <% end %>
                 </tbody>
