@@ -85,3 +85,5 @@ gem "cloudinary", "~> 1.28"
 gem "pg_search", "~> 2.3"
 
 gem "geocoder", "~> 1.8"
+
+gem "mapkick-rb", "~> 0.1.5"
