@@ -170,26 +170,6 @@ a:hover {
     transform: translateY(-50%);
 }
 
-// .section-products {
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-between; /* or justify-content: space-around; */
-// }
-
-// .single-product {
-//   flex: 0 0 100%; /* Each product takes 100% width in a row */
-//   margin-bottom: 26px;
-//   display: flex;
-//   flex-direction: column; /* Make sure child elements stack vertically */
-//   height: 100%; /* Ensure equal height for all cards */
-// }
-
-// .part-1 {
-//   position: relative;
-//   flex: 1; /* Expand to fill available space */
-//   overflow: hidden;
-// }
-
 .section-products .single-product {
   display: flex;
   // justify-content: space-between;
